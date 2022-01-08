@@ -68,8 +68,32 @@ function createBoard() {
 }
 
 createBoard()
-console.log(squares)
 
-let pacmanCurrentIndex = 500
+
+let pacmanCurrentIndex = 490
 
 squares[pacmanCurrentIndex].classList.add("pacman")
+
+function control(e) {
+    squares[pacmanCurrentIndex].classList.remove('pacman')
+    switch(e.keyCode) {
+        case 40:
+        console.log('pressed down')
+        if ( !squares[pacmanCurrentIndex + width].classList.contains('wall') &&  pacmanCurrentIndex + width < width * width) pacmanCurrentIndex += width
+        break
+        case 38:
+        console.log('pressed up')
+        if (  !squares[pacmanCurrentIndex - width].classList.contains('wall') &&pacmanCurrentIndex - width >=0) pacmanCurrentIndex -= width
+        break
+        case 37: 
+        console.log('pressed left')
+        if( !squares[pacmanCurrentIndex - 1].classList.contains('wall') && pacmanCurrentIndex % width !==0) pacmanCurrentIndex -=1
+        break
+        case 39:
+        console.log('pressed right')
+        if(  !squares[pacmanCurrentIndex + 1].classList.contains('wall') && pacmanCurrentIndex % width < width -1) pacmanCurrentIndex +=1
+        break
+    }
+    squares[pacmanCurrentIndex].classList.add('pacman')
+}
+document.addEventListener('keyup', control)
