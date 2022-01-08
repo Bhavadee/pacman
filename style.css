@@ -16,5 +16,25 @@ html, body {
 .grid div {
     width: 15px;
     height: 15px;
+}
+
+.pac-dot
+{
+    background-color: aqua;
+    box-sizing: border-box;
+    border: 5px solid white;
+}
+.wall {
     background-color: blue;
+}
+
+.power-pellet {
+    background-color: green;
+    border-radius: 7.5px;
+}
+
+.pacman {
+    background-color:red;
+    border-radius: 7.5px;
+    border: none;
 }
