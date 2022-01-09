@@ -41,19 +41,23 @@ html, body {
 .blinky {
     background-color: orange;
     border: none;
+    border-radius: 5px;
 }
 
 .pinky {
     background-color: pink;
     border: none;
+    border-radius: 5px;
 }
 
 .inky {
     background-color: green;
     border: none;
+    border-radius: 5px;
 }
 
 .clyde {
     background-color: orange;
     border: none;
+    border-radius: 5px;
 }

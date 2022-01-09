@@ -133,6 +133,14 @@ function pacDotEaten() {
     }
 }
 
+function powerPelletEaten() {
+    if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
+        squares[pacmanCurrentIndex].classList.remove('power-pellet')
+        score += 10
+        scoreDisplay.innerHTML = score
+    }
+}
+
 class Ghost {
     constructor(className, startIndex, speed) {
         this.className = className
@@ -152,11 +160,37 @@ const ghosts = [
 ]
 
 
-ghosts.forEach(ghost => squares[ghost.startIndex].classList.add(ghost.className))
+ghosts.forEach(ghost => {
+    squares[ghost.currentIndex].classList.add(ghost.className)
+    squares[ghost.currentIndex].classList.add('ghost')
+})
 
 ghosts.forEach(ghost => moveGhosts(ghost))
 
 function moveGhosts(ghost)
 {
-    const direction = [-1,+1,-width,+width]
+    const directions = [-1,+1,-width,+width]
+    let direction = directions[Math.floor(Math.random()* directions.length)]
+
+   
+    ghost.timerId = setInterval(function(){
+
+        if (
+            !squares[ghost.currentIndex + direction].classList.contains('wall') &&
+            !squares[ghost.currentIndex + direction].classList.contains('ghost')
+        )
+        {
+        squares[ghost.currentIndex].classList.remove(ghost.className)
+        squares[ghost.currentIndex].classList.remove('ghost')
+        ghost.currentIndex += direction
+
+        squares[ghost.currentIndex].classList.add(ghost.className)
+        squares[ghost.currentIndex].classList.add('ghost')
+        }
+        else
+        {
+         direction = directions[Math.floor(Math.random() * directions.length)]
+        }
+    },ghost.speed)
+   
 }
