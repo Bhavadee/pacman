@@ -119,6 +119,7 @@ function control(e) {
     }
     squares[pacmanCurrentIndex].classList.add('pacman')
     pacDotEaten()
+    powerPelletEaten()
 }
 document.addEventListener('keyup', control)
 
@@ -137,8 +138,13 @@ function powerPelletEaten() {
     if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
         squares[pacmanCurrentIndex].classList.remove('power-pellet')
         score += 10
+        ghosts.forEach(ghost => ghost.isScared = true)
         scoreDisplay.innerHTML = score
+        setTimeout(unScareGhosts,10000)
     }
+}
+function unScareGhosts() {
+    ghosts.forEach(ghost => ghost.isScared = false)
 }
 
 class Ghost {
@@ -181,7 +187,7 @@ function moveGhosts(ghost)
         )
         {
         squares[ghost.currentIndex].classList.remove(ghost.className)
-        squares[ghost.currentIndex].classList.remove('ghost')
+        squares[ghost.currentIndex].classList.remove('ghost',"scared-ghost")
         ghost.currentIndex += direction
 
         squares[ghost.currentIndex].classList.add(ghost.className)
@@ -191,6 +197,46 @@ function moveGhosts(ghost)
         {
          direction = directions[Math.floor(Math.random() * directions.length)]
         }
+
+        if (ghost.isScared) {
+            squares[ghost.currentIndex].classList.add('scared-ghost')
+        }
+
+        if (ghost.isScared && squares[ghost.currentIndex].classList.contains('pacman')) {
+            
+            squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
+            
+            ghost.currentIndex = ghost.startIndex
+           
+            score +=100
+           
+            squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
+        }
+        gameOver()
+        wonGame()
     },ghost.speed)
    
+}
+
+function gameOver()
+{
+    if(squares[pacmanCurrentIndex].classList.contains("ghost") && 
+    !squares[pacmanCurrentIndex].classList.contains("scared-ghost"))
+    {
+       
+        ghosts.forEach(ghost => clearInterval(ghost.timerId))
+        document.removeEventListener('keyup', control)
+        scoreDisplay.innerHTML = "youlose"
+    }
+}
+
+function wonGame()
+{
+    if(score === 274)
+    {
+       
+        ghosts.forEach(ghost => clearInterval(ghost.timerId))
+        document.removeEventListener('keyup', control)
+        scoreDisplay.innerHTML = "you Won"
+    }
 }
