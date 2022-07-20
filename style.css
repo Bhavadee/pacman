@@ -1,10 +1,26 @@
 
 
 html, body {
-    margin: 10;
-    padding: 10;
+    margin: 30px 80px;
+    padding: 0% 15%;
+    background-color: black;
+    color:whitesmoke
+}
+.text
+{
+    font-size: 50px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.lost
+{
+    color: red;
 }
 
+.won
+{
+    color: green;
+}
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -20,12 +36,12 @@ html, body {
 
 .pac-dot
 {
-    background-color: aqua;
+    background-color:brown;
     box-sizing: border-box;
     border: 5px solid white;
 }
 .wall {
-    background-color: blue;
+    background-color:blueviolet;
 }
 
 .power-pellet {

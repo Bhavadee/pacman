@@ -226,7 +226,9 @@ function gameOver()
        
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
         document.removeEventListener('keyup', control)
-        scoreDisplay.innerHTML = "youlose"
+        scoreDisplay.classList.add("LOST")
+        scoreDisplay.innerHTML = "  youlose  "
+
     }
 }
 
@@ -238,5 +240,6 @@ function wonGame()
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
         document.removeEventListener('keyup', control)
         scoreDisplay.innerHTML = "you Won"
+        scoreDisplay.classList.add("won")
     }
 }
