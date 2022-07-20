@@ -2,6 +2,7 @@
 const width = 28
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.getElementById('score')
+scoreDisplay.classList.add("ss")
 let squares = []
 let score = 0
 // 0 - pacdots
