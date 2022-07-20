@@ -5,11 +5,7 @@ const scoreDisplay = document.getElementById('score')
 scoreDisplay.classList.add("ss")
 let squares = []
 let score = 0
-// 0 - pacdots
-// 1 - wall
-// 2 - ghost lair
-// 3 - powerpellets
-// 4 - empty
+
 
 const layout = [
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -74,7 +70,7 @@ function createBoard() {
 
 createBoard()
 
-
+wonGame()
 let pacmanCurrentIndex = 490
 
 squares[pacmanCurrentIndex].classList.add("pacman")
@@ -213,8 +209,9 @@ function moveGhosts(ghost)
            
             squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
         }
+       
         gameOver()
-        wonGame()
+        
     },ghost.speed)
    
 }
@@ -228,7 +225,8 @@ function gameOver()
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
         document.removeEventListener('keyup', control)
         scoreDisplay.classList.add("LOST")
-        scoreDisplay.innerHTML = "  youlose  "
+        scoreDisplay.innerHTML = "  youlose  " +score
+
 
     }
 }
@@ -240,7 +238,7 @@ function wonGame()
        
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
         document.removeEventListener('keyup', control)
-        scoreDisplay.innerHTML = "you Won"
+        scoreDisplay.innerHTML = "you Won" + score
         scoreDisplay.classList.add("won")
     }
 }
