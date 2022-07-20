@@ -3,7 +3,7 @@
 html, body {
     margin: 30px 80px;
     padding: 0% 15%;
-    background-color: #21222A;
+    background-color: black;
     color:#61DAFB
 }
 .ss{
@@ -30,6 +30,7 @@ html, body {
     width: 420px;
     height: 420px;
     border: solid black;
+    box-shadow: 0px 2.98256px 7.4564px rgba(246, 243, 243, 0.94);
 }
 
 .grid div {
@@ -42,9 +43,10 @@ html, body {
     background-color:brown;
     box-sizing: border-box;
     border: 5px solid white;
+    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
 }
 .wall {
-    background-color:blueviolet;
+    background-color:lightsalmon;
 }
 
 .power-pellet {
@@ -53,7 +55,7 @@ html, body {
 }
 
 .pacman {
-    background-color:red;
+    background-color:rgb(247, 52, 52);
     border-radius: 7.5px;
     border: none;
 }
@@ -64,19 +66,19 @@ html, body {
 }
 
 .pinky {
-    background-color: pink;
+    background-color:#f3fb04;
     border: none;
     border-radius: 5px;
 }
 
 .inky {
-    background-color: green;
+    background-color: darkmagenta;
     border: none;
     border-radius: 5px;
 }
 
 .clyde {
-    background-color: orange;
+    background-color:darkred;
     border: none;
     border-radius: 5px;
 }
