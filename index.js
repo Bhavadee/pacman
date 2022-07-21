@@ -70,7 +70,7 @@ function createBoard() {
 
 createBoard()
 
-wonGame()
+
 let pacmanCurrentIndex = 490
 
 squares[pacmanCurrentIndex].classList.add("pacman")
@@ -117,6 +117,7 @@ function control(e) {
     squares[pacmanCurrentIndex].classList.add('pacman')
     pacDotEaten()
     powerPelletEaten()
+    wonGame()
 }
 document.addEventListener('keyup', control)
 
@@ -209,7 +210,7 @@ function moveGhosts(ghost)
            
             squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
         }
-       
+        wonGame()
         gameOver()
         
     },ghost.speed)
@@ -233,7 +234,7 @@ function gameOver()
 
 function wonGame()
 {
-    if(score === 274)
+    if(score >= 74)
     {
        
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
