@@ -2,6 +2,7 @@
 const width = 28
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.getElementById('score')
+const tryDisplay = document.getElementById('try')
 scoreDisplay.classList.add("ss")
 let squares = []
 let score = 0
@@ -227,14 +228,13 @@ function gameOver()
         document.removeEventListener('keyup', control)
         scoreDisplay.classList.add("LOST")
         scoreDisplay.innerHTML = "  youlose  " +score
-
-
+       
     }
 }
 
 function wonGame()
 {
-    if(score >= 74)
+    if(score >= 274)
     {
        
         ghosts.forEach(ghost => clearInterval(ghost.timerId))

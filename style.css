@@ -4,7 +4,7 @@ html, body {
     margin: 30px 80px;
     padding: 0% 15%;
     background-color: black;
-    color:#61DAFB
+    color:#f3fb04;
 }
 .ss{
     color : yellowgreen
@@ -87,3 +87,26 @@ html, body {
     background-color: rgb(172, 161, 161);
     border: none;
 }
+.tryagain
+{
+  background-color: black;
+  color:#f3fb04;
+  border:4px solid #f3fb04;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: auto;
+  margin-top: 5%;
+  padding:15px;
+  font-size: 15px;
+  font-weight: 900;
+  font-style: italic;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.tryagain:hover{
+    background-color: #f3fb04;
+    color:black;
+    border: 4px solid white;
+    
+}
+
